@@ -1,0 +1,1 @@
+python3, kivy, opencv-python, mediapipe, plyer, librosa, numpy
