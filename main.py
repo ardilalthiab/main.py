@@ -6,27 +6,18 @@ from kivy.uix.label import Label
 from kivy.uix.button import Button
 from kivy.uix.textinput import TextInput
 from kivy.uix.slider import Slider
-from plyer import filechooser, notification
-
-# --- 1. محرك المنطق العاطفي والمحاكاة ---
+from plyer import filechooser, notific
 class PersonaEngine:
     def __init__(self):
         self.context = []
         self.identity = {"name": "", "image": "", "voice": ""}
         self.sensitivity = 50
 
-    def analyze_emotion(self, text):
-        sad_words = ["حزين", "ضيق", "تعب", "فشل"]
-        happy_words = ["سعيد", "فرح", "نجاح", "ممتاز"]
-        if any(w in text for w in sad_words): return "SAD"
-        if any(w in text for w in happy_words): return "HAPPY"
-        return "NEUTRAL"
+    def analyze_emotion(self,text)
 
     def get_response(self, text):
         emotion = self.analyze_emotion(text)
-        responses = {
-            "SAD": f"أنا أشعر بك يا صديقي.. {self.identity['name']} هنا لتسمعك.",
-            "HAPPY": f"هذا رائع! حماسي كـ {self.identity['name']} لا يوصف بخبرك!",
+        responses =
             "NEUTRAL": "أنا أصغي إليك بكل اهتمام، واصل.."
         }
         return responses[emotion], emotion
@@ -36,7 +27,7 @@ class PrivacyScreen(Screen):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         layout = BoxLayout(orientation='vertical', padding=20)
-        layout.add_widget(Label(text="تعهد الخصوصية الرقمي\nبياناتك مشفرة ولا يتم مشاركتها.", halign="center"))
+        layout.add_widget(Label(text=", halign="center"))
         btn = Button(text="أوافق وأتعهد", size_hint_y=0.2)
         btn.bind(on_press=self.accept)
         layout.add_widget(btn)
@@ -54,7 +45,7 @@ class IdentityScreen(Screen):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.layout = BoxLayout(orientation='vertical', padding=20, spacing=10)
-        self.name_in = TextInput(hint_text="اسم الشخصية الرقمية", halign="right")
+        self.name_in = TextInput(hint_text", halign="right")
         btn_img = Button(text="رفع صورة من الجهاز")
         btn_voice = Button(text="رفع مقطع صوتي")
         btn_go = Button(text="تفعيل الشخصية", background_color=(0, 0.7, 0.3, 1))
@@ -89,9 +80,7 @@ class ChatScreen(Screen):
         layout.add_widget(self.logs)
         layout.add_widget(self.input)
         layout.add_widget(btn)
-        self.add_widget(layout)
-
-# --- 5. تشغيل التطبيق المتكامل ---
+ 
 class PersonaApp(App):
     def build(self):
         self.engine = PersonaEngine()
