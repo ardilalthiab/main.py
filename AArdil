@@ -59,7 +59,7 @@ class IdentityScreen(Screen):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         layout = BoxLayout(orientation='vertical', padding=10)
-        self.logs = Label(text="ابدأ الحوار الآن...\n", halign="right", valign="top")
+        self.logs = Label(text= الحوار الآن...\n", halign="right", valign="top")
         self.input = TextInput(size_hint_y=0.1, multiline=False)
         btn = Button(text="إرسال", size_hint_y=0.1)
         btn.bind(on_press=self.send)
